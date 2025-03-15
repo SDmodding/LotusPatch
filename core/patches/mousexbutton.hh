@@ -1,0 +1,9 @@
+#pragma once
+
+namespace patch::mousexbutton
+{
+    bool Apply()
+    {
+        return qPatcher::Bytes(SDK_RVA_PTR(0xA3C73C), { 0x90, 0x90, 0x4D, 0x31, 0xE4, 0xE9, 0x24, 0x03, 0x00, 0x00 });
+    }
+}
