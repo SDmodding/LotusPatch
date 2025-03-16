@@ -12,6 +12,7 @@ using namespace UFG;
 //--------------------------------
 
 #include "patches/attachableprops.hh"
+#include "patches/skipintroscreens.hh"
 #include "patches/mousexbutton.hh"
 #include "patches/umbrellacolors.hh"
 #include "patches/valvetshirtpack.hh"
@@ -46,7 +47,10 @@ namespace core
 		static const qVarINI vars[] = {
 			MAP_INI("AttachableProps", gConfig.mAttachableProps),
 			MAP_INI("UmbrellaColors", gConfig.mUmbrellaColors),
-			MAP_INI("ValveTShirtPack", gConfig.mValveTShirtPack)
+			MAP_INI("ValveTShirtPack", gConfig.mValveTShirtPack),
+
+			// Optionals
+			MAP_INI("SkipIntroScreens", gConfig.mSkipIntroScreens),
 		};
 
 		const u32 nameHash = qStringHashUpper32(name);
@@ -77,11 +81,21 @@ namespace core
 
 	bool InitializePatches()
 	{
+#ifdef _DEBUG
+		// Don't install keyboard hook for debugging purposes.
+		qPatcher::Bytes(SDK_RVA_PTR(0xA3FF00), 0xC3);
+#endif
+
 		if (gConfig.mAttachableProps && !patch::attachableprops::Apply()) {
 			return false;
 		}
 
 		if (!patch::mousexbutton::Apply()) {
+			return false;
+		}
+
+		// Optionals
+		if (gConfig.mSkipIntroScreens && !patch::skipintroscreens::Apply()) {
 			return false;
 		}
 

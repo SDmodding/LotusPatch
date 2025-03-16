@@ -6,4 +6,8 @@ struct qConfig
 	bool mUmbrellaColors = 1;
 	bool mValveTShirtPack = 1;
 
+	// Optional
+
+	bool mSkipIntroScreens = 0;
+
 } inline gConfig;

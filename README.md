@@ -12,9 +12,10 @@
 - You need to create a file named `LotusPatch.ini` inside the game's `plugins` folder.
 - All the values shown below are the defaults, so you don’t need to include them in the file to enable/disable them.
 ```ini
-AttachableProps = 1 ; Fixes an issue where attachable props fail to spawn properly.
-UmbrellaColors = 1  ; Enables randomized umbrella colors, similar to the original version.
-ValveTShirtPack = 1 ; Restores 5 DLC T-Shirts to your wardrobe
+AttachableProps = 1     ; Fixes an issue where attachable props fail to spawn properly.
+UmbrellaColors = 1      ; Enables randomized umbrella colors, similar to the original version.
+ValveTShirtPack = 1     ; Restores 5 DLC T-Shirts to your wardrobe
+SkipIntroScreens = 0    ; Skips legal & intro movies screens.
 ```
 
 ## List of Patches
@@ -23,3 +24,4 @@ ValveTShirtPack = 1 ; Restores 5 DLC T-Shirts to your wardrobe
 - Attachable props weren't spawning correctly.
 - Umbrella Colors were all white and lacked variation.
 - Missing Valve T-Shirt Pack DLC, adding five t-shirts to your wardrobe.
+- Option to skip legal and intro movie screens.
