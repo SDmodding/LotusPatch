@@ -9,5 +9,6 @@ struct qConfig
 	// Optional
 
 	bool mSkipIntroScreens = 0;
+	bool mBorderlessWindow = 0;
 
 } inline gConfig;

@@ -12,6 +12,7 @@ using namespace UFG;
 //--------------------------------
 
 #include "patches/attachableprops.hh"
+#include "patches/borderlesswindow.hh"
 #include "patches/skipintroscreens.hh"
 #include "patches/mousexbutton.hh"
 #include "patches/umbrellacolors.hh"
@@ -51,6 +52,7 @@ namespace core
 
 			// Optionals
 			MAP_INI("SkipIntroScreens", gConfig.mSkipIntroScreens),
+			MAP_INI("Borderless", gConfig.mBorderlessWindow),
 		};
 
 		const u32 nameHash = qStringHashUpper32(name);
@@ -95,7 +97,12 @@ namespace core
 		}
 
 		// Optionals
+
 		if (gConfig.mSkipIntroScreens && !patch::skipintroscreens::Apply()) {
+			return false;
+		}
+
+		if (gConfig.mBorderlessWindow && !patch::borderlesswindow::Apply()) {
 			return false;
 		}
 

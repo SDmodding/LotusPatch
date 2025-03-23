@@ -16,6 +16,7 @@ AttachableProps = 1     ; Fixes an issue where attachable props fail to spawn pr
 UmbrellaColors = 1      ; Enables randomized umbrella colors, similar to the original version.
 ValveTShirtPack = 1     ; Restores 5 DLC T-Shirts to your wardrobe
 SkipIntroScreens = 0    ; Skips legal & intro movies screens.
+Borderless = 0          ; Use borderless window mode.
 ```
 
 ## List of Patches
@@ -25,3 +26,4 @@ SkipIntroScreens = 0    ; Skips legal & intro movies screens.
 - Umbrella Colors were all white and lacked variation.
 - Missing Valve T-Shirt Pack DLC, adding five t-shirts to your wardrobe.
 - Option to skip legal and intro movie screens.
+- Option to use borderless window mode.
