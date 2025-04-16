@@ -6,7 +6,7 @@
 
 //--------------------------------
 
-#define PROJECT_VERSION		"v1.0.2"
+#define PROJECT_VERSION		"v1.0.3"
 #define PROJECT_NAME		("LotusPatch " PROJECT_VERSION)
 
 #define MsgBox_Error(msg)	MessageBoxA(0, msg, PROJECT_NAME, MB_OK | MB_ICONERROR | MB_SYSTEMMODAL);

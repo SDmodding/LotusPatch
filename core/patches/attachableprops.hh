@@ -8,7 +8,8 @@ namespace patch::attachableprops
 		// Due to this the props will be spawned & attached.
 		// This can cause issues like props clipping through certain character models.
 		// Would require to check all props & characters and modify scale, rotation & translation.
-		return qPatcher::Bytes(SDK_RVA_PTR(0x52405B), { 0xEB, 0x04 });
+		return qPatcher::Bytes(SDK_RVA_PTR(0x52405B), { 0xEB, 0x04 })
+			&& qPatcher::Bytes(SDK_RVA_PTR(0x5243B2), 0xEB); // Don't check `deletePhysicsFails`.
 	}
 
 	void ApplyInit()
