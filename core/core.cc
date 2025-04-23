@@ -79,6 +79,8 @@ namespace core
 		hook::gamestateingame::gOnEnter.I_GameStateInGame(SDK::Hook::GameState_OnEnter, hook::gamestateingame::OnEnter);
 
 		patch::attachableprops::ApplyInit();
+
+		gInitGameSystems();
 	}
 
 	bool InitializePatches()
