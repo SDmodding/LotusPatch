@@ -13,7 +13,6 @@
 - All the values shown below are the defaults, so you don’t need to include them in the file to enable/disable them.
 ```ini
 AttachableProps = 1     ; Fixes an issue where attachable props fail to spawn properly.
-UmbrellaColors = 1      ; Enables randomized umbrella colors, similar to the original version.
 ValveTShirtPack = 1     ; Restores 5 DLC T-Shirts to your wardrobe
 SkipIntroScreens = 0    ; Skips legal & intro movies screens.
 Borderless = 0          ; Use borderless window mode.
@@ -23,7 +22,7 @@ Borderless = 0          ; Use borderless window mode.
 - Game window leaking to a second screen when running in fullscreen mode.
 - Mouse 4 button couldn't be binded.
 - Attachable props weren't spawning correctly.
-- Umbrella Colors were all white and lacked variation.
+- Missing color tints on props such as umbrella, shopping bags, purses.
 - Missing Valve T-Shirt Pack DLC, adding five t-shirts to your wardrobe.
 - Option to skip legal and intro movie screens.
 - Option to use borderless window mode.

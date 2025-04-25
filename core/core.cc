@@ -15,15 +15,13 @@ using namespace UFG;
 #include "patches/borderlesswindow.hh"
 #include "patches/skipintroscreens.hh"
 #include "patches/mousexbutton.hh"
-#include "patches/umbrellacolors.hh"
 #include "patches/valvetshirtpack.hh"
 
 //--------------------------------
 //	Hooks
 //--------------------------------
 
-#include "hooks/componentfactory.hh"
-#include "hooks/compositedrawablecomponent.hh"
+#include "hooks/compositelook.hh"
 #include "hooks/gamestateingame.hh"
 #include "hooks/setwindow.hh"
 
@@ -47,7 +45,6 @@ namespace core
 	{
 		static const qVarINI vars[] = {
 			MAP_INI("AttachableProps", gConfig.mAttachableProps),
-			MAP_INI("UmbrellaColors", gConfig.mUmbrellaColors),
 			MAP_INI("ValveTShirtPack", gConfig.mValveTShirtPack),
 
 			// Optionals
@@ -75,7 +72,7 @@ namespace core
 
 	void InitGameSystems()
 	{
-		hook::componentfactory::gPropertiesOnActivate.I_SceneObjectProperties(SDK::Hook::SceneObjectProperties_Activate, hook::componentfactory::PropertiesOnActivate);
+		//hook::componentfactory::gPropertiesOnActivate.I_SceneObjectProperties(SDK::Hook::SceneObjectProperties_Activate, hook::componentfactory::PropertiesOnActivate);
 		hook::gamestateingame::gOnEnter.I_GameStateInGame(SDK::Hook::GameState_OnEnter, hook::gamestateingame::OnEnter);
 
 		patch::attachableprops::ApplyInit();
@@ -119,7 +116,6 @@ namespace core
 			void* mFunc;
 			void* mOriginal = nullptr;
 		} const hooks[] = {
-			{ 0x3DC0, hook::compositedrawablecomponent::Reset, &hook::compositedrawablecomponent::gReset },
 			{ 0x6A2250, hook::SetWindow },
 		};
 
@@ -129,6 +125,11 @@ namespace core
 				return false;
 			}
 		}
+
+		reinterpret_cast<SDK::Hook*>(&hook::compositelook::gOnDrawSkin)->I_FuncPtr(SDK_RVA(0x17C3598), hook::compositelook::OnDrawSkin);
+
+		SDK::Hook hook;
+		hook.I_FuncPtr(SDK_RVA(0x17C35A0), hook::compositelook::OnDrawRigid);
 
 		return true;
 	}
