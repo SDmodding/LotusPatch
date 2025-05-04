@@ -14,6 +14,7 @@ using namespace UFG;
 #include "patches/attachableprops.hh"
 #include "patches/borderlesswindow.hh"
 #include "patches/skipintroscreens.hh"
+#include "patches/mouseinput.hh"
 #include "patches/mousexbutton.hh"
 #include "patches/valvetshirtpack.hh"
 
@@ -88,24 +89,28 @@ namespace core
 #endif
 
 		if (gConfig.mAttachableProps && !patch::attachableprops::Apply()) {
-			return false;
+			return 0;
+		}
+
+		if (!patch::mouseinput::Apply()) {
+			return 0;
 		}
 
 		if (!patch::mousexbutton::Apply()) {
-			return false;
+			return 0;
 		}
 
 		// Optionals
 
 		if (gConfig.mSkipIntroScreens && !patch::skipintroscreens::Apply()) {
-			return false;
+			return 0;
 		}
 
 		if (gConfig.mBorderlessWindow && !patch::borderlesswindow::Apply()) {
-			return false;
+			return 0;
 		}
 
-		return true;
+		return 1;
 	}
 
 	bool InitializeHooks()
@@ -122,7 +127,7 @@ namespace core
 		for (auto& hook : hooks)
 		{
 			if (MH_CreateHook(SDK_RVA_PTR(hook.mRVA), hook.mFunc, (void**)hook.mOriginal) != MH_OK) {
-				return false;
+				return 0;
 			}
 		}
 
@@ -131,7 +136,7 @@ namespace core
 		SDK::Hook hook;
 		hook.I_FuncPtr(SDK_RVA(0x17C35A0), hook::compositelook::OnDrawRigid);
 
-		return true;
+		return 1;
 	}
 
 	bool Initialize()
@@ -141,16 +146,16 @@ namespace core
 		if (!InitializePatches())
 		{
 			MsgBox_Error("Failed to initialize patches.");
-			return false;
+			return 0;
 		}
 
 		if (!InitializeHooks())
 		{
 			MsgBox_Error("Failed to initialize hooks.");
-			return false;
+			return 0;
 		}
 
 		gInitGameSystems.I_InitGameSystems(InitGameSystems);
-		return true;
+		return 1;
 	}
 }

@@ -1,0 +1,10 @@
+#pragma once
+
+namespace patch::mouseinput
+{
+	bool Apply()
+	{
+		// Disable mouse tracking and ignore input data (WM_MOUSELEAVE)
+		return qPatcher::Bytes(SDK_RVA_PTR(0xA3C455), { 0xC6, 0x05, 0x05, 0x0A, 0xA6, 0x01, 0x00, 0xE9, 0x9D, 0x06, 0x00, 0x00 });
+	}
+}
