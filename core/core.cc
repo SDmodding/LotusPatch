@@ -8,6 +8,12 @@ using namespace UFG;
 #include "utils/helpers.hh"
 
 //--------------------------------
+//	Resources
+//--------------------------------
+
+#include "../resources/lof_bushlarge002_a.hh"
+
+//--------------------------------
 //	Patches
 //--------------------------------
 
@@ -141,7 +147,14 @@ namespace core
 
 	bool Initialize()
 	{
-		ini_parse("plugins/LotusPatch.ini", ini_config, 0);
+		const char* ini_paths[] = {
+			"LotusPatch.ini",
+			"plugins/LotusPatch.ini"
+		};
+
+		for (const char* path : ini_paths) {
+			ini_parse(path, ini_config, 0);
+		}
 
 		if (!InitializePatches())
 		{
