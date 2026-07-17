@@ -26,3 +26,4 @@ Borderless = 0          ; Use borderless window mode.
 - Missing Valve T-Shirt Pack DLC, adding five t-shirts to your wardrobe.
 - Option to skip legal and intro movie screens.
 - Option to use borderless window mode.
+- Restore missing bush model from the original version that's used throughout the map.
