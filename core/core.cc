@@ -20,6 +20,7 @@ using namespace UFG;
 #include "patches/attachableprops.hh"
 #include "patches/borderlesswindow.hh"
 #include "patches/skipintroscreens.hh"
+#include "patches/extenddestroyedobjectlifespan.hh"
 #include "patches/mouseinput.hh"
 #include "patches/mousexbutton.hh"
 #include "patches/valvetshirtpack.hh"
@@ -57,6 +58,7 @@ namespace core
 			// Optionals
 			MAP_INI("SkipIntroScreens", gConfig.mSkipIntroScreens),
 			MAP_INI("Borderless", gConfig.mBorderlessWindow),
+			MAP_INI("ExtendDestroyedObjectLifespan", gConfig.mExtendDestroyedObjectLifespan)
 		};
 
 		const u32 nameHash = qStringHashUpper32(name);

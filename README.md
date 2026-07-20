@@ -12,10 +12,11 @@
 - You need to create a file named `LotusPatch.ini` inside the game's `plugins` folder.
 - All the values shown below are the defaults, so you don’t need to include them in the file to enable/disable them.
 ```ini
-AttachableProps = 1     ; Fixes an issue where attachable props fail to spawn properly.
-ValveTShirtPack = 1     ; Restores 5 DLC T-Shirts to your wardrobe
-SkipIntroScreens = 0    ; Skips legal & intro movies screens.
-Borderless = 0          ; Use borderless window mode.
+AttachableProps = 1                 ; Fixes an issue where attachable props fail to spawn properly.
+ValveTShirtPack = 1                 ; Restores 5 DLC T-Shirts to your wardrobe
+SkipIntroScreens = 0                ; Skips legal & intro movies screens.
+Borderless = 0                      ; Use borderless window mode.
+ExtendDestroyedObjectLifespan = 0   ; When enabled, destroyed destructible objects persist in the world longer before being removed.
 ```
 
 ## List of Patches
@@ -27,3 +28,4 @@ Borderless = 0          ; Use borderless window mode.
 - Option to skip legal and intro movie screens.
 - Option to use borderless window mode.
 - Restore missing bush model from the original version that's used throughout the map.
+- Optional feature to extend the lifespan of destructible objects.

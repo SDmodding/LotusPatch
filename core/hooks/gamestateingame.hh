@@ -16,5 +16,9 @@ namespace hook::gamestateingame
 		if (gConfig.mValveTShirtPack) {
 			patch::valvetshirtpack::Apply();
 		}
+
+		if (gConfig.mExtendDestroyedObjectLifespan) {
+			patch::extenddestroyedobjectlifespan::Apply();
+		}
 	}
 }

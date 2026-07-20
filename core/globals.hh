@@ -9,5 +9,6 @@ struct qConfig
 
 	bool mSkipIntroScreens = 0;
 	bool mBorderlessWindow = 0;
+	bool mExtendDestroyedObjectLifespan = 0;
 
 } inline gConfig;
