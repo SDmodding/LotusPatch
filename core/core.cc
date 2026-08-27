@@ -24,6 +24,7 @@ using namespace UFG;
 #include "patches/mouseinput.hh"
 #include "patches/mousexbutton.hh"
 #include "patches/valvetshirtpack.hh"
+#include "patches/rifle_deusex.hh"
 
 //--------------------------------
 //	Hooks
@@ -85,6 +86,7 @@ namespace core
 		hook::gamestateingame::gOnEnter.I_GameStateInGame(SDK::Hook::GameState_OnEnter, hook::gamestateingame::OnEnter);
 
 		patch::attachableprops::ApplyInit();
+		patch::rifle_deusex::ApplyInit();
 
 		gInitGameSystems();
 	}
